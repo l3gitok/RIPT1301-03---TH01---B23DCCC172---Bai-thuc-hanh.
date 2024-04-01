@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1 {
+	        color: #eef6ee;
+            font-size: 32px;
+            text-align: center;
+        }
+        h2{
+            margin:0;
+            padding:0;
+            font-family:cursive;
+            box-sizing:
+                border-box;
+        }
+        .flex-container{
+            width: 100%;
+            height: auto;
+            display:flex;
+            flex-wrap:wrap;
+        }
+        .flex-box{
+            border: 0.00000000000000000000000000000000000000000001px solid black;
+            width: 200px;
+            height: 200px;
+            background:
+                linear-gradient(green,yellow);
+                color:white;
+                font-size: 25px;
+                text-align: center;
+                line-height: 200px;
+                margin:10px;
+        }    
+        .flexing{
+            border:0.0000000000000000000000000000000000000000001px solid black;
+            width: 200px;
+            height: 150px;
+            background:
+                linear-gradient(rgb(91, 140, 230),white);
+                color:white;
+                font-size: 25px;
+                text-align:center;
+                line-height: 200px; 
+                       
+        }
+    </style>
+    <title>Clock</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bai1.css">
+</head>
+<body>
+    <div id="clock">
+        <div>
+            <h1>THỜI GIAN BÂY GIỜ LÀ:</h1>
+            
+        </div>
+        <div id="digital-clock">
+            <div class="flex-container">
+                <div class="flex-box">
+                <span id="hours"></span>
+                <div class="flexing">Giờ</div>
+                </div>    
+                <div class="flex-box">
+                <span id="minutes"></span>
+                <div class="flexing">Phút</div>
+                </div>
+                <div class="flex-box">
+                <span id="seconds"></span>
+                <div class="flexing">Giây</div>
+                </div>
+            </div>      
+        </div>
+    </div>
+    <script>
+        function setDate() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours();
+
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        setInterval(setDate, 1000);
+        setDate();
+    </script>
+</body>
+</html>
